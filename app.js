@@ -384,7 +384,7 @@ console.log(`The average grade you made for the semester is ${newLetterGrade}`);
 //? Create a program that allows a user to manage a simple bank account, including depositing, withdrawing, and checking the balance.
  
 //TODO Define Variables: Start with a balance variable.
-debugger
+
 let bankBalance = 1733;
 
 //TODO Create Functions: Create functions to deposit money, withdraw money, and check the balance.
@@ -405,7 +405,7 @@ function bankWithdraw(moneyWithdraw) {
         bankBalance -= moneyWithdraw;
         console.log(`Your withdraw was successfull! You're new balance is $${bankBalance}`);
     } else if (moneyWithdraw > bankBalance) {
-        console.log(`You have insufficient funds in your account. You're balance is $${bankBalance}...`)
+        console.log(`You have insufficient funds in your account.`)
     } else {
         console.log("You have invalid withdraw amount...")
     }
@@ -423,33 +423,42 @@ let balanceChecker = bankChecker(bankBalance);
  
 //TODO Define an Array: Define an array to store the tasks.
 
-let tasks = ["clean bedrooms", "sweep", "mop", "take out trash"]
+let tasks = [];
+
 
 //TODO Create Functions: Create functions to add a task and display the to-do list.
-
+//This function is used to add a new string of tasks to the array "tasks"
 function addTask(newTask) {
-    tasks.push(newTask);
+    tasks.push(newTask); //method that adds a new string to end of array
     return tasks;
+    
 }
-let brandNewTask = addTask("do the laundry");
-console.log(`TO-DO LIST: \n${brandNewTask}`)
+let addNewTask = addTask("clean the bedrooms");
+console.log(addNewTask);
+
+
+
+function displayToDoList() {
+    console.log(tasks);
+}
 
 //TODO Use if-else Statements and Loops: Use if-else statements and loops within the functions to handle the tasks.
 function tasksCompleted(taskDone) {
-    for (let i = 0; i < taskDone.length; i++) {
-        if (taskDone[i] === "clean bedrooms" ) {
+
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i] === "clean bedrooms") {
             return "I'm done with with cleaning my room!!"
-        } else if (taskDone[i] === "sweep") {
+        } else if (tasks[i] === "sweep") {
             return "I'm done with sweeping the house!!"
-        } else if (taskDone[i] === "mop") {
+        } else if (tasks[i] === "mop") {
             return "I've completed doing all of the mopping!!"
-        } else if (taskDone[i] === "take out trash") {
+        } else if (tasks[i] === "take out trash") {
             return "I took out all of the trash!!!"
         }
     }
 }
 let done = tasksCompleted("clean bedrooms")
-console.log(done)
+
 
 
 
@@ -463,7 +472,59 @@ console.log(done)
 //? Create a program that converts temperatures between Celsius, Fahrenheit, and Kelvin.
  
 //TODO Define Variables: Allow the user to input a temperature value and the unit they want to convert from.
+
+let tempNum = 25;
+let tempUnitLetter = "C";
+
 //TODO Create Functions: Create functions to convert between Celsius, Fahrenheit, and Kelvin.
+//!Making this function purely for changing Celsius number to Kelvin Number!
+function celsiusToKelvin(value) {
+    //I know i have to store this kelvin number somewhere.
+    //Planning to return to a store variable.
+    return value + 273.15;
+}
+
+function fahrenheitToCelsius(){
+    return (value)
+}
+function celsiusToFahrenheit(value) {
+    return (value * 9/5) + 32
+}
+// let storedKelvinNum = celsiusToKelvin(tempNum); //! WORKS
+// console.log(storedKelvinNum) //! 298.15
+
+// let storedFahrenheitNum = celsiusToFahrenheit(tempNum); //! WORKS
+// console.log(storedFahrenheitNum); //! 77 degrees
+
+//? I have the conversions when dealing with celsius numbers
+//TODO I Need a way to tell apart and give me the other degrees
+
+function tempConverter(currentTempValue, currentTempLetter) {
+    console.log(currentTempValue + " is the tempNum");
+    console.log(currentTempLetter + " is the tempUnitLetter");
+    //MADE THIS VARIABLE  just in case a user inputs a lowercase letter.
+    let celsius = 0;
+    let fahrenheit = 0;
+    let kelvin = 0;
+
+    if(currentTempLetter === "C") {
+        fahrenheit = celsiusToFahrenheit(currentTempValue);
+        kelvin = celsiusToKelvin(currentTempValue);
+        celsius = currentTempValue;
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`)
+    } else if (upperCaseLetter === "F") {
+        fahrenheit = currentTempValue;
+        celsius = fahrenheitToCelsius(currentTempValue);
+        kelvin = celsiusToKelvin(celsius);
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`)
+    } else if (upperCaseLetter === "K") {
+        celsius = kelvintoCelsius(currentTempValue);
+        fahrenheit = 
+        kelvin = currentTempValue;
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`)
+    }
+}
+tempConverter(tempNum, tempUnitLetter)
 //? (Hint: There will be two arguements temperature value and unit letter (Celsius, Farenheit, Kelvin))
 //? ex. If I provide 25 and "C" I want the Kelvin and Farenheit temperature
  
