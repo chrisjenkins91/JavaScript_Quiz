@@ -422,7 +422,7 @@ let balanceChecker = bankChecker(bankBalance);
 //? Create a program that allows the user to add and display tasks in a to-do list.
  
 //TODO Define an Array: Define an array to store the tasks.
-
+debugger
 let tasks = [];
 
 
@@ -430,51 +430,67 @@ let tasks = [];
 //This function is used to add a new string of tasks to the array "tasks"
 function addTask(newTask) {
     tasks.push(newTask); //method that adds a new string to end of array
-    return tasks;
+    displayToDoList();
     
 }
+
 let addNewTask = addTask("clean the bedrooms");
-console.log(addNewTask);
+// console.log(tasks);
+addTask("Take yo ass to bed =-)")
 
 
 
 function displayToDoList() {
-    console.log(tasks);
+    console.log(`${tasks}`);
 }
 
 //TODO Use if-else Statements and Loops: Use if-else statements and loops within the functions to handle the tasks.
-function tasksCompleted(taskDone) {
-
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i] === "clean bedrooms") {
-            return "I'm done with with cleaning my room!!"
-        } else if (tasks[i] === "sweep") {
-            return "I'm done with sweeping the house!!"
-        } else if (tasks[i] === "mop") {
-            return "I've completed doing all of the mopping!!"
-        } else if (tasks[i] === "take out trash") {
-            return "I took out all of the trash!!!"
-        }
-    }
-}
-let done = tasksCompleted("clean bedrooms")
-
-
-
-
 //* Output Results: Use console.log to display the to-do list after each operation.
- 
+
 //! BONUS: Be able to remove a task o.o
  
- 
+function removeAnItem(taskCompleted) {
+    //I need to remove a specific item.
+    //If else statements?
+    // if (taskCompleted == "Make bed") {
+    //     console.log("Its here!")}
+          
+
+    let uppercaseTaskCompleted = taskCompleted.toUpperCase();
+    console.log(uppercaseTaskCompleted);
+
+
+    console.log(taskCompleted); //String from function arguement
+    console.log(tasks) //array from global variable;
+                        //tasks = ARRAY OF DATA []
+        //   if (taskCompleted === tasks[0]) {
+        //     tasks.splice(0,1);
+        //   } else if (taskCompleted === tasks[1]) {
+        //     tasks.splice(1,1);
+        //   } else if (taskCompleted === tasks[2]) {
+        //     tasks.splice(2,1)
+        //   }
+          for (let i = 0; i < tasks.length; i++) {
+            if (taskCompleted === tasks[i]) {
+                tasks.splice(i,1);
+                displayToDoList();
+            }
+          } 
+        }
+addTask("make bed")
+addTask("Code some")
+addTask("Make some food!")
+removeAnItem("Make some food!")
  
 //! Temperature Converter
 //? Create a program that converts temperatures between Celsius, Fahrenheit, and Kelvin.
  
 //TODO Define Variables: Allow the user to input a temperature value and the unit they want to convert from.
 
-let tempNum = 25;
-let tempUnitLetter = "C";
+let tempNum = 78;
+let tempUnitLetter = "f";
+let newTempNum = 0;
+
 
 //TODO Create Functions: Create functions to convert between Celsius, Fahrenheit, and Kelvin.
 //!Making this function purely for changing Celsius number to Kelvin Number!
@@ -484,12 +500,19 @@ function celsiusToKelvin(value) {
     return value + 273.15;
 }
 
-function fahrenheitToCelsius(){
-    return (value)
+function fahrenheitToCelsius(value){
+    return (value - 273.15)
 }
+
 function celsiusToFahrenheit(value) {
     return (value * 9/5) + 32
 }
+
+function kelvinToCelsius(value) {
+    return value - 273.15
+}
+
+
 // let storedKelvinNum = celsiusToKelvin(tempNum); //! WORKS
 // console.log(storedKelvinNum) //! 298.15
 
@@ -503,6 +526,8 @@ function tempConverter(currentTempValue, currentTempLetter) {
     console.log(currentTempValue + " is the tempNum");
     console.log(currentTempLetter + " is the tempUnitLetter");
     //MADE THIS VARIABLE  just in case a user inputs a lowercase letter.
+    let upperCaseLetter = currentTempLetter.toUpperCase();
+    console.log(upperCaseLetter);
     let celsius = 0;
     let fahrenheit = 0;
     let kelvin = 0;
@@ -518,7 +543,7 @@ function tempConverter(currentTempValue, currentTempLetter) {
         kelvin = celsiusToKelvin(celsius);
         console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`)
     } else if (upperCaseLetter === "K") {
-        celsius = kelvintoCelsius(currentTempValue);
+        celsius = kelvinToCelsius(currentTempValue);
         fahrenheit = 
         kelvin = currentTempValue;
         console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`)
